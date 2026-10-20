@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Các Vị Tôn Giả & Bồ Tát</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #03030c;
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Canvas nền vũ trụ */
+        #space-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Khung nội dung chính */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(15, 18, 37, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.1);
+        }
+
+        h1 {
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+            padding-bottom: 16px;
+            font-style: italic;
+        }
+
+        /* Danh sách thẻ liên kết */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .card-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            background: rgba(255, 215, 0, 0.12);
+            border-color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(255, 215, 0, 0.2);
+        }
+
+        .card-number {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ffd700;
+            min-width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .card-link:hover .card-title {
+            color: #fef08a;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="space-canvas"></canvas>
+
+    <div class="container">
+        <h1>Thánh Độ Mệnh</h1>
+        <div class="subtitle">Danh Sách Các Vị Tôn Giả & Bồ Tát</div>
+
+        <div class="links-grid">
+            <a href="index1.html" class="card-link"><span class="card-number">1</span><span class="card-title">Tôn Giả Xá Lợi Phất – Đệ Nhất Trí Tuệ</span></a>
+            <a href="index2.html" class="card-link"><span class="card-number">2</span><span class="card-title">Tôn Giả Mục Kiền Liên – Đệ Nhất Thần Thông</span></a>
+            <a href="index3.html" class="card-link"><span class="card-number">3</span><span class="card-title">Tôn Giả Đại Ca Diếp – Đệ Nhất Thiền Định</span></a>
+            <a href="index4.html" class="card-link"><span class="card-number">4</span><span class="card-title">Tôn Giả Đại Ca Chiên Diên – Đệ Nhất Hùng Biện</span></a>
+            <a href="index5.html" class="card-link"><span class="card-number">5</span><span class="card-title">Tôn Giả A Nan – Đệ Nhất Đa Văn Truyền Trì Kinh Tạng</span></a>
+            <a href="index6.html" class="card-link"><span class="card-number">6</span><span class="card-title">Tôn Giả A Nậu Lâu Đà – Thiên Nhãn Đệ Nhất</span></a>
+            <a href="index7.html" class="card-link"><span class="card-number">7</span><span class="card-title">Tôn Giả La Hầu La – Đệ Nhất Mật Hạnh – Bảo Hộ Tăng Đoàn</span></a>
+            <a href="index8.html" class="card-link"><span class="card-number">8</span><span class="card-title">Tôn Giả Tu Bồ Đề – Giải Không Đệ Nhất</span></a>
+            <a href="index9.html" class="card-link"><span class="card-number">9</span><span class="card-title">Tôn Giả Phú Lâu Na Mãn Từ Tử – Thuyết Pháp Đệ Nhất</span></a>
+            <a href="index10.html" class="card-link"><span class="card-number">10</span><span class="card-title">Tôn Giả Ưu Ba Ly – Đệ Nhất Giới Luật</span></a>
+            <a href="index11.html" class="card-link"><span class="card-number">11</span><span class="card-title">Tôn Giả A Nhã Kiều Trần Như – Đệ Nhất Pháp Lạp</span></a>
+            <a href="index12.html" class="card-link"><span class="card-number">12</span><span class="card-title">Tôn Giả Hồ Nghi Ly Viết – Đệ Nhất Hành Thiền</span></a>
+            <a href="index13.html" class="card-link"><span class="card-number">13</span><span class="card-title">Tôn Giả Kiếp Tân Na – Đệ Nhất Giáo Giới Tăng</span></a>
+            <a href="index14.html" class="card-link"><span class="card-number">14</span><span class="card-title">Tôn Giả Ba Đề Thích Vương – Đệ Nhất Trong Các Tỳ Kheo Thuộc Dòng Dõi Hoàng Tộc</span></a>
+            <a href="index15.html" class="card-link"><span class="card-number">15</span><span class="card-title">Tôn Giả Lakuntaka Bhaddiya – Âm Thanh Vi Diệu Đệ Nhất</span></a>
+            <a href="index16.html" class="card-link"><span class="card-number">16</span><span class="card-title">Tôn Giả La Đà (Radha) – Đệ Nhất Năng Khởi Biện Tài</span></a>
+            <a href="index17.html" class="card-link"><span class="card-number">17</span><span class="card-title">Tôn Giả Nan Đà – Đệ Nhất Tiết Chế Hộ Trì Các Căn</span></a>
+            <a href="index18.html" class="card-link"><span class="card-number">18</span><span class="card-title">Tôn Giả Tu Nê Đa – Đệ Nhất Phạm Thiên Phạm Chí</span></a>
+            <a href="index19.html" class="card-link"><span class="card-number">19</span><span class="card-title">Tôn Giả Lại Tra Hòa La – Đệ Nhất Xuất Gia Vì Lòng Tin</span></a>
+            <a href="index20.html" class="card-link"><span class="card-number">20</span><span class="card-title">Tôn Giả Đại Câu Hi La – Đệ Nhất Thiền Quán</span></a>
+            <a href="index21.html" class="card-link"><span class="card-number">21</span><span class="card-title">Tôn Giả Ưu Lâu Tần Loa Ca Diếp – Đệ Nhất Đại Hội Chúng</span></a>
+            <a href="index22.html" class="card-link"><span class="card-number">22</span><span class="card-title">Tôn Giả Thi Bà La (Sivali) – Đệ Nhất Tài Lộc</span></a>
+            <a href="index23.html" class="card-link"><span class="card-number">23</span><span class="card-title">Tôn Giả Nhị Thập Ức Nhĩ – Tinh Tấn Đệ Nhất</span></a>
+            <a href="index24.html" class="card-link"><span class="card-number">24</span><span class="card-title">Tôn Giả Sona Kutikanna – Đệ Nhất Thuyết Pháp Tinh Xảo</span></a>
+            <a href="index25.html" class="card-link"><span class="card-number">25</span><span class="card-title">Tôn Giả Bà Ca Lợi – Đệ Nhất Tịnh Tín</span></a>
+            <a href="index26.html" class="card-link"><span class="card-number">26</span><span class="card-title">Tôn Giả Kiều Phạm Ba Đề</span></a>
+            <a href="index27.html" class="card-link"><span class="card-number">27</span><span class="card-title">Tôn Giả Bằng Kỳ Xá – Đệ Nhất Biện Tài</span></a>
+            <a href="index28.html" class="card-link"><span class="card-number">28</span><span class="card-title">Tôn Giả Đà La Bà Ma La – Đệ Nhất Tổ Chức Cư Trú Cho Tăng Đoàn</span></a>
+            <a href="index29.html" class="card-link"><span class="card-number">29</span><span class="card-title">Tôn Giả Pilindavaccha – Đệ Nhất Được Chư Thiên Kính Mến</span></a>
+            <a href="index30.html" class="card-link"><span class="card-number">30</span><span class="card-title">Tôn Giả Câu Ma La Ca Diếp – Đệ Nhất Vi Diệu Giảng Sư</span></a>
+            <a href="index31.html" class="card-link"><span class="card-number">31</span><span class="card-title">Tôn Giả Vanavasi Tissa</span></a>
+            <a href="index32.html" class="card-link"><span class="card-number">32</span><span class="card-title">Tôn Giả Ca Lu Đà Di – Đệ Nhất Khơi Dậy Niềm Tịnh Tín</span></a>
+            <a href="index33.html" class="card-link"><span class="card-number">33</span><span class="card-title">Tôn Giả Bạc Câu La – Đệ Nhất Hạnh Vô Bệnh</span></a>
+            <a href="index34.html" class="card-link"><span class="card-number">34</span><span class="card-title">Tôn Giả Sobhita – Đệ Nhất Túc Mạng Tri</span></a>
+            <a href="index35.html" class="card-link"><span class="card-number">35</span><span class="card-title">Tôn Giả Nan Đà Ca – Đệ Nhất Giáo Giới Tỳ Kheo Ni</span></a>
+            <a href="index36.html" class="card-link"><span class="card-number">36</span><span class="card-title">Tôn Giả Diện Vương – Đệ Nhất Hạnh Phấn Tảo Y</span></a>
+            <a href="index37.html" class="card-link"><span class="card-number">37</span><span class="card-title">Tôn Giả Kim Tỳ La (Kimbila) – Tĩnh Tọa Một Nơi, Chuyên Tâm Niệm Đạo</span></a>
+            <a href="index38.html" class="card-link"><span class="card-number">38</span><span class="card-title">Tôn Giả Nan Đề (Nandiya)</span></a>
+            <a href="index39.html" class="card-link"><span class="card-number">39</span><span class="card-title">Tôn Giả Tân Đầu Lô Phả La Đọa – Rống Tiếng Rống Của Con Sư Tử Tối Thắng</span></a>
+            <a href="index40.html" class="card-link"><span class="card-number">40</span><span class="card-title">Tôn Giả Châu Lợi Bàn Đặc – Đệ Nhất Tâm Thắng Tiến</span></a>
+            <a href="index41.html" class="card-link"><span class="card-number">41</span><span class="card-title">Tôn Giả Ly Bà Đa – Độc Cư Thiền Tịnh Đệ Nhất</span></a>
+            <a href="index42.html" class="card-link"><span class="card-number">42</span><span class="card-title">Tôn Giả Da Xá (Yasa)</span></a>
+            <a href="index43.html" class="card-link"><span class="card-number">43</span><span class="card-title">Tôn Giả Ni Ma Ha Ba Xà Ba Đề – Đệ Nhất Tổ Ni Đoàn</span></a>
+            <a href="index44.html" class="card-link"><span class="card-number">44</span><span class="card-title">Tôn Giả Ni Khema – Đệ Nhất Trí Tuệ</span></a>
+            <a href="index45.html" class="card-link"><span class="card-number">45</span><span class="card-title">Tôn Giả Ni Liên Hoa Sắc – Đệ Nhất Thần Thông Ni Đoàn</span></a>
+            <a href="index46.html" class="card-link"><span class="card-number">46</span><span class="card-title">Tôn Giả Ni Ba La Giá Na – Đệ Nhất Trì Luật Ni Đoàn</span></a>
+            <a href="index47.html" class="card-link"><span class="card-number">47</span><span class="card-title">Tôn Giả Ni Đàm Ma Đề Na – Đệ Nhất Thuyết Pháp Ni Đoàn</span></a>
+            <a href="index48.html" class="card-link"><span class="card-number">48</span><span class="card-title">Tôn Giả Ni Xa Ma – Đệ Nhất Thiền Định Ni Đoàn</span></a>
+            <a href="index49.html" class="card-link"><span class="card-number">49</span><span class="card-title">Tôn Giả Ni Thâu Na (Sona) – Đệ Nhất Tinh Tấn Ni Đoàn</span></a>
+            <a href="index50.html" class="card-link"><span class="card-number">50</span><span class="card-title">Tôn Giả Ni Bạt Đà Quân Đà La – Biện Luận Đệ Nhất Ni Đoàn</span></a>
+            <a href="index51.html" class="card-link"><span class="card-number">51</span><span class="card-title">Tôn Giả Da Du Đà La – Thắng Trí Tối Thắng</span></a>
+            <a href="index52.html" class="card-link"><span class="card-number">52</span><span class="card-title">Tôn Giả Ni Kisa Gotami – Đệ Nhất Mang Thô Y</span></a>
+            <a href="index53.html" class="card-link"><span class="card-number">53</span><span class="card-title">Tôn Giả Ni Xa Câu Lê – Thiên Nhãn Đệ Nhất Ni Chúng</span></a>
+            <a href="index54.html" class="card-link"><span class="card-number">54</span><span class="card-title">Tôn Giả Ni Bạt Đà Ca Tỳ Ly – Đệ Nhất Nhớ Về Quá Khứ</span></a>
+            <a href="index55.html" class="card-link"><span class="card-number">55</span><span class="card-title">Bồ Tát Quán Thế Âm</span></a>
+            <a href="index56.html" class="card-link"><span class="card-number">56</span><span class="card-title">Bồ Tát Di Lặc – Đức Phật Tương Lai</span></a>
+            <a href="index57.html" class="card-link"><span class="card-number">57</span><span class="card-title">Đại Thế Chí Bồ Tát</span></a>
+            <a href="index58.html" class="card-link"><span class="card-number">58</span><span class="card-title">Văn Thù Sư Lợi Bồ Tát</span></a>
+            <a href="index59.html" class="card-link"><span class="card-number">59</span><span class="card-title">Đại Hạnh Phổ Hiền Bồ Tát</span></a>
+            <a href="index60.html" class="card-link"><span class="card-number">60</span><span class="card-title">Thiên Chủ Đế Thích</span></a>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('space-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height, stars = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            createStars();
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((width * height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 1.5,
+                    alpha: Math.random(),
+                    speed: Math.random() * 0.015 + 0.005,
+                    color: Math.random() > 0.8 ? '#a5f3fc' : (Math.random() > 0.6 ? '#fef08a' : '#ffffff')
+                });
+            }
+        }
+
+        function drawSpace() {
+            const gradient = ctx.createRadialGradient(width / 2, height / 2, 100, width / 2, height / 2, Math.max(width, height));
+            gradient.addColorStop(0, '#0f1026');
+            gradient.addColorStop(0.5, '#070814');
+            gradient.addColorStop(1, '#020208');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            stars.forEach(star => {
+                star.alpha += star.speed;
+                if (star.alpha > 1 || star.alpha < 0) {
+                    star.speed = -star.speed;
+                }
+
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = star.color;
+                ctx.globalAlpha = Math.abs(star.alpha);
+                ctx.shadowBlur = star.radius * 3;
+                ctx.shadowColor = star.color;
+                ctx.fill();
+            });
+
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(drawSpace);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        drawSpace();
+    </script>
+</body>
+</html>
